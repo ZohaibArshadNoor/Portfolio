@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f24"/>
+      <stop offset="50%" stop-color="#1a1040"/>
+      <stop offset="100%" stop-color="#051820"/>
+    </linearGradient>
+    <radialGradient id="r" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#g)"/>
+  <rect width="1200" height="750" fill="url(#r)"/>
+  <circle cx="600" cy="340" r="120" fill="none" stroke="#00E5FF" stroke-width="2" opacity="0.5"/>
+  <circle cx="600" cy="340" r="80" fill="none" stroke="#8B5CF6" stroke-width="2" opacity="0.4"/>
+  <circle cx="600" cy="340" r="20" fill="#00E5FF" opacity="0.8"/>
+  <text x="600" y="560" text-anchor="middle" fill="#e8ecf8" font-family="system-ui,sans-serif" font-size="42" font-weight="700">CareerLens</text>
+  <text x="600" y="610" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="20">AI Career Preparation Platform</text>
+</svg>

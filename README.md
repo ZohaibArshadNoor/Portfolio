@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zohaib Arshad Noor — Portfolio
 
-## Getting Started
+Premium AI/ML software engineer portfolio built with Next.js 15, React 19, Three.js, GSAP, Framer Motion, and Lenis.
 
-First, run the development server:
+## Quick start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy to Vercel
 
-## Learn More
+1. Push this repo to GitHub.
+2. Import the project in [Vercel](https://vercel.com/new).
+3. Add environment variables (see below).
+4. Deploy.
 
-To learn more about Next.js, take a look at the following resources:
+## Environment variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Copy `.env.example` to `.env.local`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Resend API key for the contact form |
+| `RESEND_FROM_EMAIL` | Verified sender, e.g. `Portfolio <hello@yourdomain.com>` |
 
-## Deploy on Vercel
+Without `RESEND_API_KEY`, the contact API logs submissions in development and still returns success so you can test the UI.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Quick content edits (search phrases)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+In Cursor / VS Code, search these markers to jump straight to editable data:
+
+| Search phrase | What you edit |
+|---------------|----------------|
+| `@EDIT PROJECTS` | All project cards / case studies |
+| `@EDIT EXPERIENCE` | Education & work timeline |
+| `@EDIT SERVICES` | Services offered |
+| `@EDIT ACHIEVEMENTS` | Achievement cards |
+| `@EDIT TESTIMONIALS` | Testimonials (placeholders) |
+| `@EDIT SKILLS` | Skill galaxy categories |
+| `@EDIT SITE_INFO` | Name, email, phone, social links |
+| `@EDIT AVATAR` | Profile photo component / filters |
+| `@EDIT TARGET_ROLES` | “Actively targeting” role chips |
+
+To **add a new project**: find `@EDIT PROJECT_MARKETING_AI`, copy that object, change the `slug` + fields.
+
+## Where to swap real assets
+
+| Asset | Path | Notes |
+|-------|------|-------|
+| Résumé PDF | `public/resume/Zohaib_Arshad_Noor_Resume.pdf` | Button already points here |
+| Avatar photo | `public/images/avatar.png` | Replace illustrated placeholder |
+| Logo / icons | `public/icons/zn-logo.png` | Also used for PWA icons |
+| OG image | `public/images/og-image.png` | 1200×630 recommended |
+| Project visuals | `public/images/projects/*.svg` | Replace with JPG/PNG/WebP; update `src/data/projects.ts` if filenames change |
+| 3D models | `public/models/` | Optional GLB (Draco-compressed) |
+| LinkedIn | `src/data/site.ts` → `linkedin` | Already set |
+| Testimonials | `src/data/experience.ts` → `testimonials` | Marked as placeholders |
+| Project GitHub / demos | `src/data/projects.ts` | Fill `github` / `liveDemo` |
+| Site URL | `src/data/site.ts` → `url` | Update before production SEO |
+
+## Stack
+
+- **Framework:** Next.js 15 (App Router) + React 19 + TypeScript
+- **Styling:** Tailwind CSS v4 design tokens in `src/app/globals.css`
+- **3D:** `@react-three/fiber`, `@react-three/drei`, `@react-three/postprocessing`
+- **Scroll / timelines:** GSAP 3 + ScrollTrigger + Lenis
+- **UI motion:** Framer Motion
+- **Contact:** Resend (`src/app/api/contact/route.ts`)
+- **Icons:** React Icons
+
+## Animation ownership
+
+- **GSAP** — loader/hero timelines, scroll reveals, pinned/scrubbed work
+- **Framer Motion** — page/component hover, layout, modal-style transitions
+
+## Accessibility & performance
+
+- `prefers-reduced-motion` skips the cinematic loader and heavy 3D scenes
+- Mobile uses simplified / static fallbacks for Hero, Skills galaxy, Spotlight, and Contact globe
+- Three.js resources are disposed on unmount via `src/lib/three-manager.ts`
+- Semantic HTML, skip link, keyboard-focus styles, and JSON-LD Person schema included
+
+## Analytics hook
+
+In `src/app/layout.tsx`, a commented Plausible/GA slot is ready — uncomment and set your domain when you want analytics.
+
+## Project structure
+
+```
+src/
+  app/                 # App Router pages, API, SEO
+  components/          # Feature sections + three/ + ui/
+  data/                # Content (projects, skills, site, experience)
+  hooks/               # useLenis, useScrollTrigger, useMagnetic, …
+  lib/                 # animation-manager, three-manager
+  types/
+public/                # Static assets & placeholders
+```
