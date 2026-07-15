@@ -5,5 +5,11 @@
   command = "npm run build"
   publish = ".next"
 
+[build.environment]
+  # RESEND_FROM_EMAIL is a public sender string (not a credential).
+  # Next.js inlines it into the server bundle, which trips Netlify's secrets scanner.
+  # Keep RESEND_API_KEY marked as a real secret in the Netlify UI.
+  SECRETS_SCAN_OMIT_KEYS = "RESEND_FROM_EMAIL"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
