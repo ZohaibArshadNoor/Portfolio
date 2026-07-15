@@ -10,7 +10,7 @@ export const SITE = {
   title: "AI/ML Software Engineer",
   description:
     "Software Engineering student specializing in Artificial Intelligence, Machine Learning, and scalable backend systems. Building practical AI products that solve real problems.",
-  url: "https://zohaibarshadnoor.vercel.app",
+  url: "https://zohaibarshadnoor.netlify.app",
   email: "zohaibarshadnoor@gmail.com",
   phone: "+92 325 3502764",
   location: "Karachi, Pakistan",
@@ -23,7 +23,7 @@ export const SITE = {
 export const ROLE_TITLES = [
   "Software Engineer",
   "Artificial Intelligence Engineer",
-  "Machine Learning Developer",
+  "Machine Learning Engineer",
   "Backend Engineer",
 ] as const;
 
